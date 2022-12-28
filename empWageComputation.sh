@@ -1,16 +1,21 @@
-echo "Welcome to Employee Wage Computation Program"
+#!/bin/bash -x
 isPartTime=1;
 isFullTime=2;
-empRatePerHr=20
-randomCheck=$((RANDOM%3));
+empRatePerHr=20;
+workingDayPerMonth=20;
+empCheck=$((RANDOM%3));
 
-case $randomCheck in $isFullTime)
-                    empHrs=8;;
-                     $isPartTime)
-                    empHrs=4;;
-                    *)
-                    empHrs=0;;
+case $empCheck in
+	$isFullTime)
+		empHrs=8
+		;;
+	$isPartTime)
+		empHrs=4
+		;;
+	*)
+	empHrs=0
+		;;
 esac
-salary=$(($empHrs*$empRatePerHr))
-echo "salary=$salary"
 
+salary=$(($workingDayPerMonth*$empHrs*$empRatePerHr))
+echo "salary=$salary"
